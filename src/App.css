@@ -1,0 +1,17 @@
+.App {
+  text-align: center;
+}
+.container {
+  margin: 580px 80px;
+  background-color: yellow;
+  text-align: center;
+}
+
+.inlineBox {
+  background-color: red;
+  margin: 10px;
+}
+
+.button {
+  background-color: green;
+}
