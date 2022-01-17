@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import Paper from '@mui/material/Paper';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -10,9 +9,11 @@ import Select from '@mui/material/Select';
 import './App.css';
 
 export default function App() {
-  const [textValue, setTextValue] = useState("");
+  const [name, setName] = useState("");
   const [number,setNumber] = useState(null);
-  const [time, setTime] = useState([]);
+  const [password, setPassword] = useState("");
+  const [date, setDate] = useState("1");
+  const [month, setMonth] = useState("Jan");
   const Dates = [
     1,
     2,
@@ -25,47 +26,48 @@ export default function App() {
     "Feb",
     "Mar"
   ];
-
-
- 
+  
   const handleChange = (e) => {
-    setTime(e.target.value);
+    setDate(e.target.value);
   }
-
   const handleSubmit = () => {
-    console.log(textValue);
+    console.log(name);
     console.log(number);
-    console.log(time);
+    console.log(password);
+    console.log(date);
+    
   }
   const handleReset = () => {
-    setTextValue("");
-    setNumber(0);
-    setTime([]);
+    setName("");
+    setNumber(null);
+    setMonth("Jan");
+    setDate("1");
+    setPassword("");
   }
-  return (
 
+  return (
     <div className='container'>
       <h2>Form Demo</h2>
+
       <div className='inlineBox'>
         <TextField
-          onChange={e => setTextValue(e.target.value)}
-          value={textValue}
+          onChange={e => setName(e.target.value)}
+          value={name}
           label={"Full Name"} //optional
         />
       </div>
-      
       <div className='inlineBox'>
         <TextField
           onChange={e => setNumber(e.target.value)}
-          value={number}
-          label={"card number"} //optional
+          value={number || ""}
+          label={"Card Number"} //optional
         />
       </div>
       <div className='inlineBox'>
         <TextField
-            id="outlined-password-input"
+            onChange={e => setPassword(e.target.value)}
             label="Password"
-            type="password"
+            value={password}
             autoComplete="current-password"
         />
       </div>
@@ -73,9 +75,10 @@ export default function App() {
         <FormControl sx={{ m: 1, minWidth: 80 }}>
           <InputLabel >Month</InputLabel>
           <Select
-            value={time}
-            onChange={handleChange}
-            input={<OutlinedInput label="time" />}
+            id="selectTime"
+            value={month}
+            onChange={e => setMonth(e.target.value)}
+            input={<OutlinedInput label="month" />}
           >
             {Months.map((month) => (
               <MenuItem
@@ -90,9 +93,10 @@ export default function App() {
         <FormControl sx={{ m: 1, minWidth: 80 }}>
           <InputLabel >Date</InputLabel>
           <Select
-            value={time}
+            id="selectTime"
+            value={date}
             onChange={handleChange}
-            input={<OutlinedInput label="time" />}
+            input={<OutlinedInput label="date" />}
           >
             {Dates.map((date) => (
               <MenuItem
@@ -106,7 +110,7 @@ export default function App() {
         </FormControl>
       </div>
       
-      <div>
+      <div className='buttonGroup'>
         <Button variant="contained"  onClick={handleSubmit}>Submit</Button>
         <Button variant="contained" onClick={handleReset}>Reset</Button>
       </div>

@@ -2,16 +2,24 @@
   text-align: center;
 }
 .container {
-  margin: 580px 80px;
-  background-color: yellow;
+  margin: 90px;
+  width: 500px;
   text-align: center;
 }
-
-.inlineBox {
-  background-color: red;
-  margin: 10px;
+h2 {
+  margin-left: 40px;
 }
-
-.button {
-  background-color: green;
+.inlineBox {
+  margin: 20px;
+  width: 500px;
+  text-align: center;
+}
+#selectTime {
+  width: 42px;
+}
+.buttonGroup {
+  margin-left: 40px;
+}
+.buttonGroup button {
+  margin: 10px;
 }
