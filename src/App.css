@@ -1,0 +1,25 @@
+.App {
+  text-align: center;
+}
+.container {
+  margin: 90px;
+  width: 500px;
+  text-align: center;
+}
+h2 {
+  margin-left: 40px;
+}
+.inlineBox {
+  margin: 20px;
+  width: 500px;
+  text-align: center;
+}
+#selectTime {
+  width: 42px;
+}
+.buttonGroup {
+  margin-left: 40px;
+}
+.buttonGroup button {
+  margin: 10px;
+}
